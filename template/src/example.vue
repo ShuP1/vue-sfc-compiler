@@ -1,7 +1,6 @@
-<template>
-	<div @click="changeName()">
-		Hello, {{name}}.
-	</div>
+<template lang="pug">
+div(@click="changeName()").
+	Hello, {{ name }}.
 </template>
 
 <script>
@@ -20,8 +19,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
-div {
-	font-weight: bold;
-}
+<style lang="sass" scoped>
+div
+	font-weight: bold
 </style>

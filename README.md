@@ -1,10 +1,12 @@
-# Vue Browser SFC
+# Vue SFC Compiler
 
 > Template for build setup to compile Single File Components (.vue) into a standalone JS file for use in the browser
 
 This template is useful for compiling VueJS single file components (SFC) into standalone JS files for use in the browser. This is useful for devs that want to create a simple component that can be used on a site without having to build an entire app around it, similar to the way a JQuery plugin might be used. The template, script, and styles are all compiled to a single JS file.
 
-The compiler is setup to allow you to use either LESS or SASS (scss or sass) if you want to.
+The compiler is setup to allow you to use either LESS or SASS (scss or sass) if you want to
+
+As well as pug
 
 ## Usage
 
@@ -19,7 +21,7 @@ At the command line, enter the following commands in parent folder of where you 
 $ npm install -g vue-cli
 
 # Create a new project based on this template
-$ vue init ronniesan/vue-browser-sfc my-project
+$ vue init sheychen/vue-sfc-compiler my-project
 
 # Navigate into your new project folder
 $ cd my-project
@@ -35,7 +37,11 @@ Create a `.vue` file anywhere in the `src` folder of the project you just create
 Then, run the webpack compiler and point the `--env.file` argument to the .vue file you created (you don't need to add the extension). The path should be relative to the `src` folder, so if you created your `.vue` file in the `src` folder, the path would just be the name of the file.  For example, if the file is located in `src/sub-folder/my-component.vue`, the path you would enter for the `--env.file` argument would be `sub-folder/my-component`.
 
 ``` bash
-$ webpack --env.file=path/to/my-component
+$ npm run build path/to/my-component
+```
+
+``` bash
+$ npm run serve path/to/my-component
 ```
 
 The webpack compiler runs in watch mode so any changes you make will update the compiled file. Whenever you make changes to you component, as long as the webpack compiler is running, the changes will be re-compiled and saved over the same output file. The compiled output file will be created at the same relative path in the `dist` folder that it was located in the `src` folder. So if you create a component at `src/some-sub-folder/my-rad-component.vue`, the compiled file will be located in `dist/some-sub-folder/my-rad-component.js`.

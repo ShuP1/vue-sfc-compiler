@@ -7,8 +7,6 @@
 
 // Import dependencies
 const path                = require('path');
-const webpack             = require('webpack');
-const ExtractTextPlugin   = require('extract-text-webpack-plugin');
 const OptimizeCSSPlugin   = require('optimize-css-assets-webpack-plugin');
 const StringReplacePlugin = require('string-replace-webpack-plugin');
 const VueLoaderPlugin     = require('vue-loader/lib/plugin');
@@ -23,7 +21,6 @@ module.exports = (env) => {
 	const filepath = path.dirname(env.file);
 
 	return {
-		watch : true,
 		mode : 'production',
 		entry : {
 			[filename] : './entry.js'
@@ -107,6 +104,10 @@ module.exports = (env) => {
 							}
 						}
 					]
+				},
+				{
+					test: /\.pug$/,
+					loader: 'pug-plain-loader'
 				}
 			]
 		},
