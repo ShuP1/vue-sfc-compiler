@@ -6,7 +6,7 @@ This template is useful for compiling VueJS single file components (SFC) into st
 
 The compiler is setup to allow you to use either LESS or SASS (scss or sass) if you want to
 
-As well as pug
+As well as pug and **typescript** !
 
 ## Usage
 
@@ -37,11 +37,11 @@ Create a `.vue` file anywhere in the `src` folder of the project you just create
 Then, run the webpack compiler and point the `--env.file` argument to the .vue file you created (you don't need to add the extension). The path should be relative to the `src` folder, so if you created your `.vue` file in the `src` folder, the path would just be the name of the file.  For example, if the file is located in `src/sub-folder/my-component.vue`, the path you would enter for the `--env.file` argument would be `sub-folder/my-component`.
 
 ``` bash
-$ npm run build path/to/my-component
+$ npm run build path/to/my-component.vue
 ```
 
 ``` bash
-$ npm run serve path/to/my-component
+$ npm run watch path/to/my-component.vue
 ```
 
 The webpack compiler runs in watch mode so any changes you make will update the compiled file. Whenever you make changes to you component, as long as the webpack compiler is running, the changes will be re-compiled and saved over the same output file. The compiled output file will be created at the same relative path in the `dist` folder that it was located in the `src` folder. So if you create a component at `src/some-sub-folder/my-rad-component.vue`, the compiled file will be located in `dist/some-sub-folder/my-rad-component.js`.

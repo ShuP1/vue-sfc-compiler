@@ -30,7 +30,7 @@ module.exports = (env) => {
 			path : path.resolve(__dirname, 'dist', filepath)
 		},
 		resolve : {
-			extensions : ['.vue', '.js'],
+			extensions : ['.ts', '.vue', '.js'],
 			alias : {
 				'vue$' : resolve('node_modules/vue/dist/vue.min.js'),
 				'@'    : resolve('src')
@@ -57,6 +57,14 @@ module.exports = (env) => {
 				{
 					test : /\.vue$/,
 					loader : 'vue-loader'
+				},
+				{
+					test: /\.tsx?$/,
+					loader: 'ts-loader',
+					exclude: /node_modules/,
+					options: {
+						appendTsSuffixTo: [/\.vue$/],
+					}
 				},
 				{
 					test : /\.js$/,
@@ -110,6 +118,13 @@ module.exports = (env) => {
 					loader: 'pug-plain-loader'
 				}
 			]
+		},
+		devServer: {
+			historyApiFallback: true,
+			noInfo: true
+		},
+		performance: {
+			hints: false
 		},
 		plugins : [
 			new VueLoaderPlugin(),
